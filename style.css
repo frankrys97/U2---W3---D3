@@ -1,0 +1,9 @@
+.card-img-top {
+  aspect-ratio: 16/ 9;
+  object-fit: cover;
+}
+
+#bookList {
+  display: flex;
+  flex-wrap: wrap;
+}
