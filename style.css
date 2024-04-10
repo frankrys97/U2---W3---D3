@@ -1,3 +1,8 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
 .card-img-top {
   aspect-ratio: 16/ 9;
   object-fit: cover;
@@ -7,3 +12,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+h2 {
+    background-color: #ee3755;
+    color: white;
+}
+

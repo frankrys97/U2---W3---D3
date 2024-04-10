@@ -72,7 +72,7 @@ const saveCart = () => {
   cart.forEach((book) => {
     const li = document.createElement("li");
     li.classList.add("list-group-item", "bg-body-secondary", "my-2");
-    li.innerHTML = `${book.title} - <span class="badge bg-secondary rounded-pill">${book.price}</span>
+    li.innerHTML = `${book.title} - <span class="badge bg-secondary rounded-pill">€ ${book.price}</span>
           <button class="btn btn-danger btnToRemoveCart ms-2 p-1">Rimuovi</button>`;
     cartList.appendChild(li);
 
@@ -84,6 +84,7 @@ const saveCart = () => {
     removeCartButton.addEventListener("click", () => {
       removeFromCart(book);
       saveCart();
+      upBadge();
     });
   });
 
@@ -95,6 +96,7 @@ const saveCart = () => {
 // card al click del bottone compra ora
 const addToCart = (book) => {
   cart.push(book);
+  upBadge();
 
   // Chiamo la funzione saveCart per ricaricare il carrello
   saveCart();
@@ -106,6 +108,7 @@ const removeFromCart = (bookToRemove) => {
   cart = cart.filter((book) => book !== bookToRemove);
   //   Chiamo la funzione saveCart per ricaricare il carrello
   saveCart();
+  upBadge();
 };
 
 // Funzione che mi permette di prendere il dato settato nella memoria locale
@@ -126,4 +129,17 @@ window.addEventListener("DOMContentLoaded", () => {
   // Chiamo la funzione cartLoad per caricare il carrello a partire dai dati
   // presenti nell'array
   cartLoad();
+  upBadge();
 });
+
+const upBadge = () => {
+  const badge = document.querySelector("#iconCart .badge");
+  const cartNum = cart.length;
+
+  if (cartNum > 0) {
+    badge.textContent = cartNum;
+    badge.style.display = "block";
+  } else {
+    badge.style.display = "none";
+  }
+};
