@@ -50,7 +50,7 @@ const fetchLibrary = () => {
 
         const btnBuy = card.querySelector(".btn-success");
 
-        btnBuy.addEventListener("click", (event) => {
+        btnBuy.addEventListener("click", () => {
           addToCart(book);
         });
       });

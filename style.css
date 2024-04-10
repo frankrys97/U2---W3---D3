@@ -4,7 +4,7 @@ html {
 
 
 .card-img-top {
-  aspect-ratio: 16/ 9;
+  aspect-ratio: 9 / 16;
   object-fit: cover;
 }
 
